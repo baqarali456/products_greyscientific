@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useProductContext } from '../context/context';
 import ProductCard from '../components/ProductCard';
+import { Link } from 'react-router-dom';
 
 function ProductList() {
     const {products=[]} = useProductContext();
@@ -31,7 +32,12 @@ function ProductList() {
                 }
 
             </div>
-        ) : <h2 className=' text-center my-2'>No product in Product List</h2>
+        ) :<div className="d-flex flex-column gap-2">
+            <h2 className=' text-center my-2'>No product in Product List</h2>
+
+            <Link className=" text-center text-decoration-none bg-primary rounded shadow text-white p-2" to="/addproduct">Please Add Product in Product List</Link>
+
+        </div> 
       }
 
       {products.length > 0 && <div className=' d-flex my-3 justify-content-between align-items-center text-white'>
